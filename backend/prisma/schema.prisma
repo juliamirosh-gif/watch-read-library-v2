@@ -1,0 +1,39 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String        @id @default(cuid()) 
+  email        String        @unique              
+  username     String        @unique              
+  passwordHash String                             
+  avatarPath   String?                           
+  createdAt    DateTime      @default(now())      
+
+  libraryItems LibraryItem[]
+}
+
+model LibraryItem {
+  id              Int      @id @default(autoincrement()) 
+  title           String                                
+  category        String                                 
+  description     String   @default("")                  
+  review          String   @default("")                  
+  rating          Int      @default(0)                   
+  year            Int      @default(2024)                
+  status          String                                 
+  currentProgress Int?                                   
+  totalProgress   Int?                                   
+  progressType    String   @default("")                  
+  coverPath       String?                                
+  isFavorite      Boolean  @default(false)               
+  createdAt       DateTime @default(now())               
+
+  userId          String                                 
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,161 @@
+.library-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 42px;
+}
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 35px;
+}
+.library-title {
+  font-family: "Grenze Gotisch", serif;
+  font-size: 3rem;
+}
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--red), var(--dark-red));
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-red);
+  transition: var(--transition);
+}
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.45);
+  color: white;
+}
+
+/* Фільтри */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 40px;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(74, 71, 67, 0.22);
+  border: 1px solid var(--border);
+}
+.filter-search {
+  width: 100%;
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  font-size: 14px;
+}
+.search-input {
+  width: 100%;
+  background: #241a19;
+  color: var(--white);
+  border: 1px solid rgba(214, 215, 210, 0.15);
+  border-radius: 14px;
+  padding: 12px 16px 12px 40px;
+  font-size: 15px;
+}
+.search-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 0.2rem rgba(199, 55, 44, 0.25);
+  outline: none;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+.chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(214, 215, 210, 0.08);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.chip:hover {
+  background: var(--red);
+  color: white;
+}
+.chip-active {
+  background: linear-gradient(135deg, var(--red), var(--dark-red));
+  color: white;
+  box-shadow: 0 0 12px rgba(199, 55, 44, 0.35);
+}
+.filter-select {
+  background: #241a19;
+  color: var(--white);
+  border: 1px solid rgba(214, 215, 210, 0.15);
+  border-radius: 14px;
+  padding: 10px 40px 10px 16px;
+  font-weight: 600;
+  min-width: 180px;
+}
+
+/* Сітка — трохи менші картки */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 24px;
+}
+.library-loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+.library-error {
+  text-align: center;
+  color: var(--red);
+  padding: 40px;
+  font-weight: 600;
+}
+.library-empty {
+  padding: 55px;
+  border-radius: var(--radius-lg);
+  background: rgba(74, 71, 67, 0.25);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.library-empty p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--light-gray);
+}
+
+@media (max-width: 900px) {
+  .library-page {
+    padding: 0 20px;
+  }
+  .library-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .library-title {
+    font-size: 2.2rem;
+  }
+  .library-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+}
