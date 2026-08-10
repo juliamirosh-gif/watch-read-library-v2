@@ -14,6 +14,7 @@ import {
   FaCommentDots,
   FaMask,
 } from "react-icons/fa";
+import heroImage from "../assets/d4fbbaf873c9377b3d442d5d6cd2d64d.jpg";
 import "./Home.css";
 
 const CATEGORIES = [
@@ -75,7 +76,7 @@ export default function Home() {
         </div>
 
         <div className="hero-side-card">
-          <img src="/src/assets/d4fbbaf873c9377b3d442d5d6cd2d64d.jpg" alt="Бібліотека" />
+          <img src={heroImage} alt="Бібліотека" />
           <div className="hero-side-placeholder">
             <span></span>
           </div>
